@@ -3,12 +3,12 @@ pandas
 numpy
 pypdf
 pdfplumber
-langchain==0.0.225
+langchain
 torch
 accelerate
 bitsandbytes
 transformers
-sentence_transformers==2.2.2
+sentence_transformers
 flask
 faiss_cpu
 scikit-learn
@@ -17,3 +17,11 @@ regex
 pinecone-client
 pinecone
 peft
+wandb
+evaluate
+rouge-score
+pytorch_lightning==0.7.5
+sentencepiece
+chainlit
+langchain_huggingface
+huggingface_hub
