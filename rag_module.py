@@ -6,7 +6,7 @@ from langchain.llms import HuggingFacePipeline
 from transformers import pipeline
 
 model_name = 'sentence-transformers/all-MiniLM-L6-v2'
-model_kwargs = {"device": "cuda"}
+model_kwargs = {'device': 'cpu'}
 
 embeddings = HuggingFaceEmbeddings(model_name=model_name, model_kwargs=model_kwargs)
 
@@ -56,7 +56,7 @@ def retrieval_qa_chain(llm, prompt, db):
 
 def qa_bot(model, tokenizer):
     embeddings = HuggingFaceEmbeddings(model_name=model_name,model_kwargs=model_kwargs)
-    db = FAISS.load_local(DB_FAISS_PATH, embeddings, allow_dangerous_deserialization=True)
+    db = FAISS.load_local(DB_FAISS_PATH, embeddings)
     llm = create_llm(model, tokenizer)
     qa_prompt = set_custom_prompt()
     qa = retrieval_qa_chain(llm, qa_prompt, db)
